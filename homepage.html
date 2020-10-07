@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>
+
+
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .carousel {
+          height: 60vh;
+        }
+      
+        @media (max-width: 740px) {
+      
+          html,
+          body,
+          header,
+          .carousel {
+            height: 100vh;
+          }
+        }
+      
+        @media (min-width: 800px) and (max-width: 850px) {
+      
+          html,
+          body,
+          header,
+          .carousel {
+            height: 100vh;
+          }
+        }
+      
+        @media (min-width: 800px) and (max-width: 850px) {
+          .navbar:not(.top-nav-collapse) {
+            background: #929FBA !important;
+          }
+        }
+      
+      </style>
+    
+</head>
+<body>
+    <header>
+
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+          <div class="container">
+    
+            <!-- Brand -->
+            <a class="navbar-brand"  target="_blank">
+              <strong>MediQuix</strong>
+            </a>
+    
+            <!-- Collapse -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+              <!-- Left -->
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="homepage.html">Home
+                    
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="enterinfo.html" >Enter info</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="profile.html" >Profile</a>
+                  
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="Child.html" >Child Vaccine Enquiries</a>
+                    
+                  </li>
+    
+                
+                
+              </ul>
+    
+              <!-- Right -->
+              <ul class="navbar-nav nav-flex-icons">
+                <li class="nav-item">
+                  <a href="#" class="nav-link" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <button onclick="logout()">logout</button>
+                </li>
+                
+              </ul>
+    
+            </div>
+    
+          </div>
+        </nav>
+        <!-- Navbar -->
+    
+        <!--Carousel Wrapper-->
+        <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+    
+          <!--Indicators-->
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+          </ol>
+          <!--/.Indicators-->
+    
+          <!--Slides-->
+          <div class="carousel-inner" role="listbox">
+    
+            <!--First slide-->
+            <div class="carousel-item active">
+              <div class="view" style="background-image: url('img/pg3.jpg');  background-size: 400px 800px;">
+    
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+    
+                  <!-- Content -->
+                  <div class="text-center white-text mx-5 wow fadeIn">
+                    <h1 class="mb-4">
+                      <strong>MediQuix</strong>
+                    </h1>
+                  </div>
+                  <!-- Content -->
+    
+                </div>
+                <!-- Mask & flexbox options-->
+    
+              </div>
+            </div>
+            <!--/First slide-->
+    
+            <!--Second slide-->
+            <div class="carousel-item">
+              <div class="view" style="background-image: url('img/pg4.jpg');  background-size: 400px 500px;">
+    
+                <!-- Mask & flexbox options-->
+                <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+    
+                  <!-- Content -->
+                  <div class="text-center white-text mx-5 wow fadeIn">
+                    <h1 class="mb-4">
+                      <strong>MediQuix</strong>
+                    </h1>
+    
+                    
+                  </div>
+                  <!-- Content -->
+    
+                </div>
+                <!-- Mask & flexbox options-->
+    
+              </div>
+            </div>
+            <!--/Second slide-->
+    
+            
+    
+          </div>
+          <!--/.Slides-->
+    
+          <!--Controls-->
+          <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+          <!--/.Controls-->
+    
+        </div>
+        <!--/.Carousel Wrapper-->
+    
+      </header>
+      <main>
+        <div class="container">
+    
+          <!--Section: Main info-->
+          <section class="mt-5 wow fadeIn">
+    
+            <!--Grid row-->
+            <div class="row">
+    
+              <!--Grid column-->
+              <div class="col-md-6 mb-4">
+    
+                <img src="img/pg6.jpg"style="height:500px;" class="img-fluid z-depth-1-half"
+                  alt="">
+    
+              </div>
+              <!--Grid column-->
+    
+              <!--Grid column-->
+              <div class="col-md-6 mb-4">
+    
+                <!-- Main heading -->
+                <h3 class="h3 mb-3">ABOUT US</h3>
+                <p>This application is just like having a doctor in your pocket!</p>
+                <p>guiding through your difficult times!</p>
+                <!-- Main heading -->
+    
+                <hr>
+    
+                <p>
+                    Living a healthier life might seem like a tall order — the nutrition, the exercise, the inner happiness! But having some friendly advice at your disposal, whenever and wherever you need it, makes it easier and more fun.
+                </p>
+                <p>Each patient is genuinely, authentically, and remarkably unique with individual perspectives, experiences, and thoughts.
+                    Your examination routine or ritual, while not new to you, is very much a new experience for the patient.</p>
+                <p>MediQuix is an online, healthcare media publishing company. We provide easy-to-read, in-depth, authoritative medical information for consumers via its robust, user-friendly, interactive website.</p>
+    
+                <p>has had a highly accomplished, uniquely experienced team of qualified executives in the fields of medicine, healthcare, Internet technology, and business to bring you the most comprehensive, sought-after healthcare information anywhere.</p>
+              </div>
+              <!--Grid column-->
+    
+            </div>
+            <!--Grid row-->
+    
+          </section>
+          <!--Section: Main info-->
+    
+          <hr class="my-5">
+       </div>
+
+    </main>
+    <!--Footer-->
+<footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+    
+
+    <hr class="my-4">
+  
+    <!-- Social icons -->
+    <div class="pb-4">
+     
+    </div>
+    <!-- Social icons -->
+  
+    <!--Copyright-->
+    <div class="footer-copyright py-3">
+      © 2019 Copyright:
+      <a target="_blank">MediQuix.com</a>
+    </div>
+    <!--/.Copyright-->
+  
+  </footer>
+  <!--/.Footer-->
+    
+    
+
+
+    <script src='firebase.js'></script>
+    <script src='homepage.js'></script> 
+</body>
+</html>
